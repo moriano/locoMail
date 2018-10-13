@@ -1,8 +1,8 @@
 __author__ = 'jmoriano'
 
-
-from gevent.wsgi import WSGIServer
 from locoMail import app
+from gevent.pywsgi import WSGIServer
+
 
 http_server = WSGIServer(('', 5000), app)
 http_server.log

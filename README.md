@@ -1,5 +1,11 @@
-# locoMail
-A simple smtp server that can be used for testing
+# ~~locoMail~~ Loco Mail Reloaded
+A simple smtp server that can be used for testing.
+
+This is a fork from viator's locomail.
+
+## Improvements over original repo.
+
+* Used alpine distribution for docker container, so that the image is smaller.
 
 ## Motivation
 As a developer in many ocassions you will require to send emails. It is a pain to either modify the code so that

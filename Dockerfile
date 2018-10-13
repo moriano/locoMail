@@ -8,20 +8,17 @@
 #    docker push viatorinc/locomail
 
 
-FROM debian:jessie
-RUN apt-get update
-RUN apt-get -y --fix-missing install python3 telnet wget sqlite3
-
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN /usr/bin/python3 get-pip.py
+FROM alpine:3.8
+RUN apk add --no-cache build-base python3 python3-dev
 
 RUN pip3 install requests flask gevent
-
+RUN rm -rf /root/.cache && rm -rf /var/cache
 RUN mkdir -p /opt/locomail
 COPY src/ /opt/locomail
 
+#RUN apk del build-dependencies
 EXPOSE 5000
 EXPOSE 25
 
-COPY externalFiles/entryPoint.sh /
-ENTRYPOINT "/entryPoint.sh"
+COPY externalFiles/entryPoint.sh /tmp
+ENTRYPOINT "/tmp/entryPoint.sh"

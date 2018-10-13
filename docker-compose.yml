@@ -1,14 +1,9 @@
-#
-# To startup things, just
-#   docker-compose up
-
 version: '2'
 services:
-
-  locomail:
+  locomail-reloaded:
     build: .
     ports:
       - "5000:5000"
       - "25:25"
-    container_name: locomail
-    image: viatorinc/locomail
+    container_name: locomail-reloaded
+    image: moriano/locomail-reloaded
